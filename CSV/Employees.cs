@@ -12,7 +12,7 @@ namespace CSV
 
         public List<EmployeeData> EmployeList;
 
-        public List<EmployeeData> FailedEmployeeList;
+        private List<EmployeeData> FailedEmployeeList;
 
 
         public  Employees (string source)
@@ -52,6 +52,7 @@ namespace CSV
                     except.AgeOutOFRangeExcetion(emps);
 
                     continue;
+
 
 
                 }
@@ -143,9 +144,10 @@ namespace CSV
 
         public void PrintEmployeeData()
         {
-
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{"First Name",10}" + $"{"Middle Name",15}" + $"{"Last Name",15}" + $"{"Age",11}" + $"{"Percentage",17}");
-            Console.WriteLine("");
+
+            Console.ResetColor();
 
             for (int i = 0; i < EmployeList.Count; i++)
             {
@@ -160,9 +162,9 @@ namespace CSV
 
         public void PrintFailed()
         {
-
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{"First Name",10}" + $"{"Middle Name",15}" + $"{"Last Name",15}" + $"{"Age",11}" + $"{"Percentage",17}");
-            Console.WriteLine("");
+            Console.ResetColor();
 
             for (int i = 0; i < FailedEmployeeList.Count; i++)
             {
