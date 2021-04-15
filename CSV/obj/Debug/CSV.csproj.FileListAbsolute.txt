@@ -20,3 +20,13 @@ C:\Users\Anoop\source\repos\CSV\CSV\obj\Debug\CSV.csproj.CoreCompileInputs.cache
 C:\Users\Anoop\source\repos\CSV\CSV\obj\Debug\CSV.csproj.CopyComplete
 C:\Users\Anoop\source\repos\CSV\CSV\obj\Debug\CSV.exe
 C:\Users\Anoop\source\repos\CSV\CSV\obj\Debug\CSV.pdb
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\CSV.exe.config
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\obj\Debug\CSV.exe
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\obj\Debug\CSV.pdb
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\CSV.exe
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\CSV.pdb
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\anoop.singh\Desktop\Work\Assignment 2\CSV-Reading-assignment-2\CSV\obj\Debug\CSV.csprojResolveAssemblyReference.cache
