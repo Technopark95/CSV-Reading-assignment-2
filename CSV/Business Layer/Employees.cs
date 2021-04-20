@@ -12,16 +12,16 @@ namespace CSV
 
         public List<EmployeeData> EmployeList;
 
-        private List<EmployeeData> _FailedEmployeeList;
+        private List<EmployeeData> _failedEmployeeList;
 
-        private string _Source;
+        private string _source;
 
 
-        public  Employees (string DataSource)
+        public  Employees (string dataSource)
         {
             EmployeList = new List<EmployeeData>();
-            _FailedEmployeeList = new List<EmployeeData>();
-            _Source = DataSource;
+            _failedEmployeeList = new List<EmployeeData>();
+            _source = dataSource;
 
         }
 
@@ -32,11 +32,11 @@ namespace CSV
 
             EmployeeData Employee;
 
-            List<EmployeeData> EmpLists = new List<EmployeeData>();
+            this.EmployeList = new List<EmployeeData>();
 
-            _FailedEmployeeList = new List<EmployeeData>();
+            _failedEmployeeList = new List<EmployeeData>();
 
-            var Reader = new StreamReader(_Source);
+            var Reader = new StreamReader(_source);
 
 
             while (!Reader.EndOfStream)
@@ -59,9 +59,9 @@ namespace CSV
                     }
 
                 }
-                catch (HandleException Except)
+                catch (HandleException except)
                 {
-                    Except.AgeOutOFRangeException(Employee);
+                    except.AgeOutOFRangeException(Employee);
 
                     continue;
 
@@ -117,18 +117,16 @@ namespace CSV
                     }
 
                 }
-                catch (HandleException Except)
+                catch (HandleException except)
                 {
-                    Except.MarksLessThan60Exception(Employee);
+                    except.MarksLessThan60Exception(Employee);
 
-                    _FailedEmployeeList.Add(Employee);
+                    _failedEmployeeList.Add(Employee);
 
                 }
 
-                EmpLists.Add(Employee);
+                this.EmployeList.Add(Employee);
             }
-
-            this.EmployeList = EmpLists;
 
         }
 
@@ -179,9 +177,9 @@ namespace CSV
             for (int i = 0; i < EmployeList.Count; i++)
             {
 
-                object[] header = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
+                object[] Header = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
 
-                FormatOutput(header);
+                FormatOutput(Header);
 
             }
 
@@ -193,11 +191,11 @@ namespace CSV
             this.FormatHeader();
             Console.ResetColor();
 
-            for (int i = 0; i < _FailedEmployeeList.Count; i++)
+            for (int i = 0; i < _failedEmployeeList.Count; i++)
             {
 
-                object[] header = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
-                FormatOutput(header);
+                object[] Output = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
+                FormatOutput(Output);
             }
 
         }

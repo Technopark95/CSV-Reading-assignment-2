@@ -13,47 +13,44 @@ namespace CSV
     class Program
     {
 
-
-
-
-      
         static void Main(string[] args) 
         {
-
 
             try
             {
             
-                Employees EmpLists = new Employees(Constants.SourcePath);
+                Employees EmployeesList = new Employees(Constants.SourcePath);
 
-                EmpLists.LoadEmployees();
-
-                Console.WriteLine("\n\n");
-
-                EmpLists.PrintEmployeeData();
+                EmployeesList.LoadEmployees();
 
                 Console.WriteLine("\n\n");
 
-                EmpLists.PrintFailed();
+                EmployeesList.PrintEmployeeData();
+
+                Console.WriteLine("\n\n");
+
+                EmployeesList.PrintFailed();
 
 
                 Console.WriteLine("\n\n");
 
 
-                var SortedListByName = EmpLists.SortByName();
+                var SortedListByName = EmployeesList.SortByName();
 
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                EmpLists.FormatHeader();
+                EmployeesList.FormatHeader();
 
                 Console.ResetColor();
 
 
-                foreach (var data in SortedListByName)
+                foreach (var Data in SortedListByName)
                 {
 
-                    Console.WriteLine($"{data.FirstName,10}" + $"{data.MiddleName,15}" + $"{data.LastName,15}" + $"{data.Age,10}" + $"{data.Percent,10}");
+                    object[] Output = { Data.FirstName, Data.MiddleName, Data.LastName, Data.Age, Data.Percent };
+                    EmployeesList.FormatOutput(Output);
 
+                   
                 }
 
             } catch(Exception e)

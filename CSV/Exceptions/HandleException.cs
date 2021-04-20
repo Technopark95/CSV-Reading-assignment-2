@@ -10,24 +10,24 @@ namespace CSV
     {
 
 
-        public void AgeOutOFRangeException(EmployeeData Person)
+        public void AgeOutOFRangeException(EmployeeData person)
         {
 
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine($"AgeOutOFRangeExcetion : Age : {Person.Age} is not in range, Ignoring the row.");
+            Console.WriteLine($"AgeOutOFRangeExcetion : Age : {person.Age} is not in range, Ignoring the row.");
 
             Console.ResetColor();
 
         }
 
 
-        public void MarksLessThan60Exception(EmployeeData Person)
+        public void MarksLessThan60Exception(EmployeeData person)
         {
 
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine($"MarksLessThan60Exception : Percentage : {Person.Percent}% is less than 60%, Added in Failed List.");
+            Console.WriteLine($"MarksLessThan60Exception : Percentage : {person.Percent}% is less than 60%, Added in Failed List.");
 
             Console.ResetColor();
         }
