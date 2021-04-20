@@ -25,10 +25,15 @@ namespace CSV
 
                 Console.WriteLine("\n\n");
 
+
+                //Print All Person with 30 < age > 17
                 EmployeesList.PrintEmployeeData();
 
                 Console.WriteLine("\n\n");
 
+
+
+                //Print Failed Person
                 EmployeesList.PrintFailed();
 
 
@@ -45,6 +50,7 @@ namespace CSV
                 Console.ResetColor();
 
 
+                //Print Sorted by Name(Lexicographical order)
                 foreach (var Data in SortedListByName)
                 {
 

@@ -54,7 +54,7 @@
     <Compile Include="Data Layer\EmployeeData.cs" />
     <Compile Include="Business Layer\Employees.cs" />
     <Compile Include="Exceptions\HandleException.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Client Layer\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

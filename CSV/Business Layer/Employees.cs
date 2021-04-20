@@ -111,8 +111,11 @@ namespace CSV
                 {
                     Employee.Percent = Convert.ToInt16(Values[2]);
 
+             
                     if (Employee.Percent < 60)
                     {
+
+                        _failedEmployeeList.Add(Employee);
                         throw new HandleException();
                     }
 
@@ -121,7 +124,7 @@ namespace CSV
                 {
                     except.MarksLessThan60Exception(Employee);
 
-                    _failedEmployeeList.Add(Employee);
+                   
 
                 }
 
@@ -194,7 +197,7 @@ namespace CSV
             for (int i = 0; i < _failedEmployeeList.Count; i++)
             {
 
-                object[] Output = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
+                object[] Output = { _failedEmployeeList[i].FirstName, _failedEmployeeList[i].MiddleName, _failedEmployeeList[i].LastName, _failedEmployeeList[i].Age, _failedEmployeeList[i].Percent };
                 FormatOutput(Output);
             }
 
