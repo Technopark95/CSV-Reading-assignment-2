@@ -13,6 +13,9 @@ namespace CSV
     class Program
     {
 
+
+
+
       
         static void Main(string[] args) 
         {
@@ -41,6 +44,12 @@ namespace CSV
                 var Sortbyname = Emplists.SortByName();
 
 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Emplists.FormatHeader();
+
+                Console.ResetColor();
+
+
                 foreach (var data in Sortbyname)
                 {
 
@@ -53,6 +62,9 @@ namespace CSV
                 Console.WriteLine(e.Message);
             }
 
+          
+
+         
 
             Console.ReadKey();
          

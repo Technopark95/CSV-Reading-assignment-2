@@ -149,17 +149,38 @@ namespace CSV
         }
 
 
+        public void FormatHeader()
+        {
+
+            string[] header = { "First Name", "Middle Name", "Last Name", "Age", "Percentage" };
+            String FormattedOutput = String.Format("{0,-15} {1,-15} {2,-15} {3,-10} {4,-10}",header );
+            Console.WriteLine(FormattedOutput);
+
+        }
+
+        public void FormatOutput(object [] header)
+        {
+
+    
+            String FormattedOutput = String.Format("{0,-15} {1,-15} {2,-15} {3,-10} {4,-10}", header);
+            Console.WriteLine(FormattedOutput);
+
+        }
+
         public void PrintEmployeeData()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{"First Name",10}" + $"{"Middle Name",15}" + $"{"Last Name",15}" + $"{"Age",11}" + $"{"Percentage",17}");
+
+            this.FormatHeader();
 
             Console.ResetColor();
 
             for (int i = 0; i < EmployeList.Count; i++)
             {
 
-                Console.WriteLine($"{EmployeList[i].FirstName,10}" + $"{EmployeList[i].MiddleName,15}" + $"{EmployeList[i].LastName,15}" + $"{EmployeList[i].Age,10}" + $"{EmployeList[i].Percent,10}");
+                object[] header = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
+
+                FormatOutput(header);
 
             }
 
@@ -170,14 +191,14 @@ namespace CSV
         public void PrintFailed()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{"First Name",10}" + $"{"Middle Name",15}" + $"{"Last Name",15}" + $"{"Age",11}" + $"{"Percentage",17}");
+            this.FormatHeader();
             Console.ResetColor();
 
             for (int i = 0; i < _FailedEmployeeList.Count; i++)
             {
 
-                Console.WriteLine($"{_FailedEmployeeList[i].FirstName,10}" + $"{_FailedEmployeeList[i].MiddleName,15}" + $"{_FailedEmployeeList[i].LastName,15}" + $"{_FailedEmployeeList[i].Age,10}" + $"{_FailedEmployeeList[i].Percent,10}");
-
+                object[] header = { EmployeList[i].FirstName, EmployeList[i].MiddleName, EmployeList[i].LastName, EmployeList[i].Age, EmployeList[i].Percent };
+                FormatOutput(header);
             }
 
         }
