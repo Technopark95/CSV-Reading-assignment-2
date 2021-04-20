@@ -12,7 +12,7 @@ namespace CSV
 
         public List<EmployeeData> EmployeList;
 
-        private List<EmployeeData> FailedEmployeeList;
+        private List<EmployeeData> _FailedEmployeeList;
 
         private string Source;
 
@@ -32,7 +32,7 @@ namespace CSV
 
             List<EmployeeData> emplists = new List<EmployeeData>();
 
-            FailedEmployeeList = new List<EmployeeData>();
+            _FailedEmployeeList = new List<EmployeeData>();
 
             var reader = new StreamReader(Source);
 
@@ -62,8 +62,6 @@ namespace CSV
                     except.AgeOutOFRangeException(emps);
 
                     continue;
-
-
 
                 }
 
@@ -121,7 +119,7 @@ namespace CSV
                 {
                     except.MarksLessThan60Exception(emps);
 
-                    FailedEmployeeList.Add(emps);
+                    _FailedEmployeeList.Add(emps);
 
                 }
 
@@ -175,10 +173,10 @@ namespace CSV
             Console.WriteLine($"{"First Name",10}" + $"{"Middle Name",15}" + $"{"Last Name",15}" + $"{"Age",11}" + $"{"Percentage",17}");
             Console.ResetColor();
 
-            for (int i = 0; i < FailedEmployeeList.Count; i++)
+            for (int i = 0; i < _FailedEmployeeList.Count; i++)
             {
 
-                Console.WriteLine($"{FailedEmployeeList[i].FirstName,10}" + $"{FailedEmployeeList[i].MiddleName,15}" + $"{FailedEmployeeList[i].LastName,15}" + $"{FailedEmployeeList[i].Age,10}" + $"{FailedEmployeeList[i].Percent,10}");
+                Console.WriteLine($"{_FailedEmployeeList[i].FirstName,10}" + $"{_FailedEmployeeList[i].MiddleName,15}" + $"{_FailedEmployeeList[i].LastName,15}" + $"{_FailedEmployeeList[i].Age,10}" + $"{_FailedEmployeeList[i].Percent,10}");
 
             }
 
