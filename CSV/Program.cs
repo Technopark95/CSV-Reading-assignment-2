@@ -39,6 +39,7 @@ namespace CSV
 
 
                 Console.ForegroundColor = ConsoleColor.Green;
+
                 EmployeesList.FormatHeader();
 
                 Console.ResetColor();

@@ -46,7 +46,7 @@ namespace CSV
                 var Line = Reader.ReadLine();
                 var Values = Line.Split(',');
 
-                var SepeartedNames = Values[0].Trim().Split(' ');
+                var SeperatedNames = Values[0].Trim().Split(' ');
 
 
                 try
@@ -68,41 +68,41 @@ namespace CSV
                 }
 
 
-                if (SepeartedNames.Length == 1)
+                if (SeperatedNames.Length == 1)
                 {
-                    Employee.FirstName = SepeartedNames[0];
+                    Employee.FirstName = SeperatedNames[0];
                     Employee.MiddleName = "";
                     Employee.LastName = "";
                 }
 
-                else if (SepeartedNames.Length == 2)
+                else if (SeperatedNames.Length == 2)
                 {
-                    Employee.FirstName = SepeartedNames[0];
+                    Employee.FirstName = SeperatedNames[0];
                     Employee.MiddleName = "";
-                    Employee.LastName = SepeartedNames[1];
+                    Employee.LastName = SeperatedNames[1];
                 }
 
 
-                else if (SepeartedNames.Length == 3)
+                else if (SeperatedNames.Length == 3)
                 {
-                    Employee.FirstName = SepeartedNames[0];
-                    Employee.MiddleName = SepeartedNames[1];
-                    Employee.LastName = SepeartedNames[2];
+                    Employee.FirstName = SeperatedNames[0];
+                    Employee.MiddleName = SeperatedNames[1];
+                    Employee.LastName = SeperatedNames[2];
                 }
 
-                else if (SepeartedNames.Length > 3)
+                else if (SeperatedNames.Length > 3)
                 {
                     string CollectedFirstname = "";
 
-                    for (int i = 0; i < SepeartedNames.Length - 2; i++)
+                    for (int i = 0; i < SeperatedNames.Length - 2; i++)
                     {
-                        CollectedFirstname += SepeartedNames[i] + " ";
+                        CollectedFirstname += SeperatedNames[i] + " ";
 
                     }
 
                     Employee.FirstName = CollectedFirstname.Trim();
-                    Employee.MiddleName = SepeartedNames[SepeartedNames.Length - 2];
-                    Employee.LastName = SepeartedNames[SepeartedNames.Length - 1];
+                    Employee.MiddleName = SeperatedNames[SeperatedNames.Length - 2];
+                    Employee.LastName = SeperatedNames[SeperatedNames.Length - 1];
                 }
 
 
