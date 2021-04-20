@@ -28,30 +28,30 @@ namespace CSV
         {
 
 
-            EmployeeData emps;
+            EmployeeData Emps;
 
-            List<EmployeeData> emplists = new List<EmployeeData>();
+            List<EmployeeData> Emplists = new List<EmployeeData>();
 
             _FailedEmployeeList = new List<EmployeeData>();
 
-            var reader = new StreamReader(Source);
+            var Reader = new StreamReader(Source);
 
 
-            while (!reader.EndOfStream)
+            while (!Reader.EndOfStream)
             {
-                emps = new EmployeeData();
+                Emps = new EmployeeData();
 
-                var line = reader.ReadLine();
-                var values = line.Split(',');
+                var Line = Reader.ReadLine();
+                var Values = Line.Split(',');
 
-                var SepeartedNames = values[0].Trim().Split(' ');
+                var SepeartedNames = Values[0].Trim().Split(' ');
 
 
                 try
                 {
-                    emps.Age = Convert.ToInt16(values[1]);
+                    Emps.Age = Convert.ToInt16(Values[1]);
 
-                    if (emps.Age < 18 || emps.Age > 30)
+                    if (Emps.Age < 18 || Emps.Age > 30)
                     {
                         throw new HandleException();
                     }
@@ -59,7 +59,7 @@ namespace CSV
                 }
                 catch (HandleException except)
                 {
-                    except.AgeOutOFRangeException(emps);
+                    except.AgeOutOFRangeException(Emps);
 
                     continue;
 
@@ -68,24 +68,24 @@ namespace CSV
 
                 if (SepeartedNames.Length == 1)
                 {
-                    emps.FirstName = SepeartedNames[0];
-                    emps.MiddleName = "";
-                    emps.LastName = "";
+                    Emps.FirstName = SepeartedNames[0];
+                    Emps.MiddleName = "";
+                    Emps.LastName = "";
                 }
 
                 else if (SepeartedNames.Length == 2)
                 {
-                    emps.FirstName = SepeartedNames[0];
-                    emps.MiddleName = "";
-                    emps.LastName = SepeartedNames[1];
+                    Emps.FirstName = SepeartedNames[0];
+                    Emps.MiddleName = "";
+                    Emps.LastName = SepeartedNames[1];
                 }
 
 
                 else if (SepeartedNames.Length == 3)
                 {
-                    emps.FirstName = SepeartedNames[0];
-                    emps.MiddleName = SepeartedNames[1];
-                    emps.LastName = SepeartedNames[2];
+                    Emps.FirstName = SepeartedNames[0];
+                    Emps.MiddleName = SepeartedNames[1];
+                    Emps.LastName = SepeartedNames[2];
                 }
 
                 else if (SepeartedNames.Length > 3)
@@ -98,18 +98,18 @@ namespace CSV
 
                     }
 
-                    emps.FirstName = CollectedFirstname.Trim();
-                    emps.MiddleName = SepeartedNames[SepeartedNames.Length - 2];
-                    emps.LastName = SepeartedNames[SepeartedNames.Length - 1];
+                    Emps.FirstName = CollectedFirstname.Trim();
+                    Emps.MiddleName = SepeartedNames[SepeartedNames.Length - 2];
+                    Emps.LastName = SepeartedNames[SepeartedNames.Length - 1];
                 }
 
 
 
                 try
                 {
-                    emps.Percent = Convert.ToInt16(values[2]);
+                    Emps.Percent = Convert.ToInt16(Values[2]);
 
-                    if (emps.Percent < 60)
+                    if (Emps.Percent < 60)
                     {
                         throw new HandleException();
                     }
@@ -117,16 +117,16 @@ namespace CSV
                 }
                 catch (HandleException except)
                 {
-                    except.MarksLessThan60Exception(emps);
+                    except.MarksLessThan60Exception(Emps);
 
-                    _FailedEmployeeList.Add(emps);
+                    _FailedEmployeeList.Add(Emps);
 
                 }
 
-                emplists.Add(emps);
+                Emplists.Add(Emps);
             }
 
-            this.EmployeList = emplists;
+            this.EmployeList = Emplists;
 
         }
 
