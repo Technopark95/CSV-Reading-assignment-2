@@ -10,7 +10,7 @@ namespace CSV
     {
 
 
-        public void AgeOutOFRangeExcetion(EmployeeData person)
+        public void AgeOutOFRangeException(EmployeeData person)
         {
 
             Console.ForegroundColor = ConsoleColor.Red;
@@ -22,12 +22,12 @@ namespace CSV
         }
 
 
-        public void MarksLessTha60Exception(EmployeeData person)
+        public void MarksLessThan60Exception(EmployeeData person)
         {
 
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine($"MarksLessTha60Exception : Percentage : {person.Percent}% is less than 60%, Added in Failed List.");
+            Console.WriteLine($"MarksLessThan60Exception : Percentage : {person.Percent}% is less than 60%, Added in Failed List.");
 
             Console.ResetColor();
         }

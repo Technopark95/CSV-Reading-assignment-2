@@ -14,9 +14,19 @@ namespace CSV
 
         private List<EmployeeData> FailedEmployeeList;
 
+        private string Source;
 
-        public  Employees (string source)
+
+        public  Employees (string DataSource)
         {
+            Source = DataSource;
+
+        }
+
+
+        public void LoadEmployees()
+        {
+
 
             EmployeeData emps;
 
@@ -24,7 +34,7 @@ namespace CSV
 
             FailedEmployeeList = new List<EmployeeData>();
 
-            var reader = new StreamReader(source);
+            var reader = new StreamReader(Source);
 
 
             while (!reader.EndOfStream)
@@ -49,7 +59,7 @@ namespace CSV
                 }
                 catch (HandleException except)
                 {
-                    except.AgeOutOFRangeExcetion(emps);
+                    except.AgeOutOFRangeException(emps);
 
                     continue;
 
@@ -109,7 +119,7 @@ namespace CSV
                 }
                 catch (HandleException except)
                 {
-                    except.MarksLessTha60Exception(emps);
+                    except.MarksLessThan60Exception(emps);
 
                     FailedEmployeeList.Add(emps);
 
@@ -119,7 +129,6 @@ namespace CSV
             }
 
             this.EmployeList = emplists;
-           
 
         }
 
