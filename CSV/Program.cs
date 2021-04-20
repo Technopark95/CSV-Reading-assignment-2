@@ -21,36 +21,35 @@ namespace CSV
         {
 
 
-           const string DataFileSource = "data.csv";
-
             try
             {
-                Employees Emplists = new Employees(DataFileSource);
+            
+                Employees EmpLists = new Employees(Constants.SourcePath);
 
-                Emplists.LoadEmployees();
-
-                Console.WriteLine("\n\n");
-
-                Emplists.PrintEmployeeData();
+                EmpLists.LoadEmployees();
 
                 Console.WriteLine("\n\n");
 
-                Emplists.PrintFailed();
+                EmpLists.PrintEmployeeData();
+
+                Console.WriteLine("\n\n");
+
+                EmpLists.PrintFailed();
 
 
                 Console.WriteLine("\n\n");
 
 
-                var Sortbyname = Emplists.SortByName();
+                var SortedListByName = EmpLists.SortByName();
 
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Emplists.FormatHeader();
+                EmpLists.FormatHeader();
 
                 Console.ResetColor();
 
 
-                foreach (var data in Sortbyname)
+                foreach (var data in SortedListByName)
                 {
 
                     Console.WriteLine($"{data.FirstName,10}" + $"{data.MiddleName,15}" + $"{data.LastName,15}" + $"{data.Age,10}" + $"{data.Percent,10}");

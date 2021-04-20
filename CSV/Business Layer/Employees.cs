@@ -14,12 +14,14 @@ namespace CSV
 
         private List<EmployeeData> _FailedEmployeeList;
 
-        private string Source;
+        private string _Source;
 
 
         public  Employees (string DataSource)
         {
-            Source = DataSource;
+            EmployeList = new List<EmployeeData>();
+            _FailedEmployeeList = new List<EmployeeData>();
+            _Source = DataSource;
 
         }
 
@@ -28,18 +30,18 @@ namespace CSV
         {
 
 
-            EmployeeData Emps;
+            EmployeeData Employee;
 
-            List<EmployeeData> Emplists = new List<EmployeeData>();
+            List<EmployeeData> EmpLists = new List<EmployeeData>();
 
             _FailedEmployeeList = new List<EmployeeData>();
 
-            var Reader = new StreamReader(Source);
+            var Reader = new StreamReader(_Source);
 
 
             while (!Reader.EndOfStream)
             {
-                Emps = new EmployeeData();
+                Employee = new EmployeeData();
 
                 var Line = Reader.ReadLine();
                 var Values = Line.Split(',');
@@ -49,17 +51,17 @@ namespace CSV
 
                 try
                 {
-                    Emps.Age = Convert.ToInt16(Values[1]);
+                    Employee.Age = Convert.ToInt16(Values[1]);
 
-                    if (Emps.Age < 18 || Emps.Age > 30)
+                    if (Employee.Age < 18 || Employee.Age > 30)
                     {
                         throw new HandleException();
                     }
 
                 }
-                catch (HandleException except)
+                catch (HandleException Except)
                 {
-                    except.AgeOutOFRangeException(Emps);
+                    Except.AgeOutOFRangeException(Employee);
 
                     continue;
 
@@ -68,24 +70,24 @@ namespace CSV
 
                 if (SepeartedNames.Length == 1)
                 {
-                    Emps.FirstName = SepeartedNames[0];
-                    Emps.MiddleName = "";
-                    Emps.LastName = "";
+                    Employee.FirstName = SepeartedNames[0];
+                    Employee.MiddleName = "";
+                    Employee.LastName = "";
                 }
 
                 else if (SepeartedNames.Length == 2)
                 {
-                    Emps.FirstName = SepeartedNames[0];
-                    Emps.MiddleName = "";
-                    Emps.LastName = SepeartedNames[1];
+                    Employee.FirstName = SepeartedNames[0];
+                    Employee.MiddleName = "";
+                    Employee.LastName = SepeartedNames[1];
                 }
 
 
                 else if (SepeartedNames.Length == 3)
                 {
-                    Emps.FirstName = SepeartedNames[0];
-                    Emps.MiddleName = SepeartedNames[1];
-                    Emps.LastName = SepeartedNames[2];
+                    Employee.FirstName = SepeartedNames[0];
+                    Employee.MiddleName = SepeartedNames[1];
+                    Employee.LastName = SepeartedNames[2];
                 }
 
                 else if (SepeartedNames.Length > 3)
@@ -98,35 +100,35 @@ namespace CSV
 
                     }
 
-                    Emps.FirstName = CollectedFirstname.Trim();
-                    Emps.MiddleName = SepeartedNames[SepeartedNames.Length - 2];
-                    Emps.LastName = SepeartedNames[SepeartedNames.Length - 1];
+                    Employee.FirstName = CollectedFirstname.Trim();
+                    Employee.MiddleName = SepeartedNames[SepeartedNames.Length - 2];
+                    Employee.LastName = SepeartedNames[SepeartedNames.Length - 1];
                 }
 
 
 
                 try
                 {
-                    Emps.Percent = Convert.ToInt16(Values[2]);
+                    Employee.Percent = Convert.ToInt16(Values[2]);
 
-                    if (Emps.Percent < 60)
+                    if (Employee.Percent < 60)
                     {
                         throw new HandleException();
                     }
 
                 }
-                catch (HandleException except)
+                catch (HandleException Except)
                 {
-                    except.MarksLessThan60Exception(Emps);
+                    Except.MarksLessThan60Exception(Employee);
 
-                    _FailedEmployeeList.Add(Emps);
+                    _FailedEmployeeList.Add(Employee);
 
                 }
 
-                Emplists.Add(Emps);
+                EmpLists.Add(Employee);
             }
 
-            this.EmployeList = Emplists;
+            this.EmployeList = EmpLists;
 
         }
 
@@ -185,8 +187,6 @@ namespace CSV
 
         }
 
-
-
         public void PrintFailed()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -201,7 +201,6 @@ namespace CSV
             }
 
         }
-
 
 
     }

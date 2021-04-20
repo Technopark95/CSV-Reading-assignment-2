@@ -50,9 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Layer\Constants.cs" />
     <Compile Include="Data Layer\EmployeeData.cs" />
     <Compile Include="Business Layer\Employees.cs" />
-    <Compile Include="HandleException.cs" />
+    <Compile Include="Exceptions\HandleException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
