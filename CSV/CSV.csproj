@@ -50,8 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployeeData.cs" />
-    <Compile Include="Employees.cs" />
+    <Compile Include="Data Layer\EmployeeData.cs" />
+    <Compile Include="Business Layer\Employees.cs" />
     <Compile Include="HandleException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
