@@ -158,11 +158,10 @@ namespace CSV
 
         }
 
-        public void FormatOutput(object [] header)
+        public void FormatOutput(object [] output)
         {
 
-    
-            String FormattedOutput = String.Format("{0,-15} {1,-15} {2,-15} {3,-10} {4,-10}", header);
+            String FormattedOutput = String.Format("{0,-15} {1,-15} {2,-15} {3,-10} {4,-10}", output);
             Console.WriteLine(FormattedOutput);
 
         }
