@@ -61,7 +61,7 @@ namespace CSV
                 }
                 catch (HandleException except)
                 {
-                    except.AgeOutOFRangeException(Employee);
+                    except.AgeOutOfRangeException(Employee);
 
                     continue;
 

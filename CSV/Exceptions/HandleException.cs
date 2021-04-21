@@ -10,7 +10,7 @@ namespace CSV
     {
 
 
-        public void AgeOutOFRangeException(EmployeeData person)
+        public void AgeOutOfRangeException(EmployeeData person)
         {
 
             Console.ForegroundColor = ConsoleColor.Red;
